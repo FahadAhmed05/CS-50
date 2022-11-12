@@ -16,3 +16,9 @@ git add . # put the working files in staging
 git commit -m "Update read me " # Add the commit in local git 
 git push origin branch-name # push the code into server repo
 ```
+## Git Introduction 
+Questions
+[Reference Lecture](https://www.youtube.com/watch?v=NcoBAfJ6l2Q)
+1. Why we need git 
+2. What is git 
+3. What is github
