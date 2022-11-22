@@ -1,8 +1,6 @@
 # Credit
 ## Conditions
 
-
-
 ## Luhn's Algorithm  
  The Luhn's algorithm, also known as the `modulus` 10 or mod 10 algorithm, is a simple checksum formula used to validate a variety of identification numbers, such as credit card numbers, IMEI numbers, Canadian Social Insurance Numbers. The LUHN formula was created in the late 1960s by a group of mathematicians. Shortly thereafter, credit card companies adopted it.
 
