@@ -31,54 +31,68 @@ islower() function in C programming checks whether the given character is lower 
 
 int main(int argc, string argv[])
 {
-  if (argc != 2)
-  {
-    printf("Usage: ./caesar key\n");
-    return 1;
-  }
-  if (argc == 2)
-  {
-    int i = atoi(argv[1]);
-    string input = get_string("plaintext: ");
-    printf("ciphertext: ");
-    for (int j = 0, n = strlen(input); j < n; j++)
+    if (argc != 2)
     {
-      // if(!isdigit(argv[1][i]))
-      // {
-      //   printf("Usage: ./caesar key\n");
-      //   return 1;
-      // }
-      if (isalpha(input[j]))
-      {
-        if (isupper(input[j]))
-        {
-          int x = (int)input[j] - 65;
-          int c = (x + i) % 26;
-          int y = (65 + c);
-          printf("%c", y);
-        }
-        else
-        {
-          if (islower(input[j]))
-          {
-            int x = (int)input[j] - 97;
-            int c = (x + i) % 26;
-            int y = (97 + c);
-            printf("%c", y);
-          }
-        }
-      }
-      else
-      {
-        printf("%c", input[j]);
-      }
+        printf("Usage: ./caesar key\n");
+        return 1;
     }
-    printf("\n");
-  }
-  else
-  {
-    printf("Error\n");
-    return 1;
-  }
+    // check is second arg is digit or not
+    for (int i = 0; i < strlen(argv[1]); i++)
+    {
+        if (!isdigit(argv[1][i]))
+        {
+            printf("Usage: ./caesar key\n");
+            return 1;
+        }
+    }
+    if (argc == 2)
+    {
+        // covert string into int
+        int i = atoi(argv[1]);
+        // user Input
+        string input = get_string("plaintext: ");
+        printf("ciphertext: ");
+        for (int j = 0, n = strlen(input); j < n; j++)
+        {
+            // check is alphabet
+            if (isalpha(input[j]))
+            {
+                // check is uppercase
+                if (isupper(input[j]))
+                {
+                    // check uppercase and then the value given ascii we have -65 for the uppercase
+                    // alpha value. and minus input value with -65
+                    int x = (int)input[j] - 65;
+                    // To find the value of c, we have to do (x + i) % 26 which is taken from given formula
+                    int c = (x + i) % 26;
+                    // and then plus 65 in the c value to get original value
+                    int y = (65 + c);
+                    printf("%c", y);
+                }
+                else
+                {
+                    // check is lowercase
+                    if (islower(input[j]))
+                    {
+                        // here we use - 97 to the lower case alpha
+                        int x = (int)input[j] - 97;
+                        int c = (x + i) % 26;
+                        int y = (97 + c);
+                        printf("%c", y);
+                    }
+                }
+            }
+            else
+            {
+                printf("%c", input[j]);
+            }
+        }
+        printf("\n");
+    }
+    else
+    {
+        printf("Error\n");
+        return 1;
+    }
 }
 ```
